@@ -1,3 +1,4 @@
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -30,6 +31,9 @@ public class SauceConnectWithJenkinPlugIn {
 
         driver = new RemoteWebDriver(new java.net.URL(URL), caps);
         driver.get("https://www.groupm.com/");
+
+        ((JavascriptExecutor) driver).executeScript("sauce:job-result=" + (driver.getTitle().equalsIgnoreCase("Home | GroupM") ? "passed" : "failed"));
+
 
         driver.quit();
     }
