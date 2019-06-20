@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'com.groupm'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.14.0'
+
+    // Use TestNG test framework
+    testImplementation 'org.testng:testng:6.14.3'
+}
+
+task execute(type:JavaExec) {
+    main = mainClass
+    classpath = sourceSets.main.runtimeClasspath
+
+ }
